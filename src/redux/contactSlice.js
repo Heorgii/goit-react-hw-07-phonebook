@@ -72,7 +72,7 @@ export const contactSlice = createSlice({
             state.isLoading = false;
             state.error = null;
             const idx = state.items.findIndex(({ id }) => id === action.payload.id);
-            state.splice(idx, 1);
+            state.items.splice(idx, 1);
         },
         [deleteContact.rejected]: handleRejected,
     }
