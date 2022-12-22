@@ -1,5 +1,5 @@
 import css from './ContactList.module.css';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Notification from 'components/Notification/Notification';
 import { deleteContact } from 'redux/operations';
 import { getContacts } from 'redux/selector';
@@ -8,6 +8,7 @@ import { getFilter } from 'redux/selector';
 const ContactList = () => {
     const filterInput = useSelector(getFilter);
     const contacts = useSelector(getContacts);
+    const dispatch = useDispatch();
 
     const getContactsList = () => {
         const isAddedFilter = filterInput.toLowerCase();

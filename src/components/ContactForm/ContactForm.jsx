@@ -50,7 +50,6 @@ const ContactForm = () => {
         setNumber('');
     }
 
-
     return (
         <div className={css.form_box}>
             <form className={css.contact_form} onSubmit={addContact}>
