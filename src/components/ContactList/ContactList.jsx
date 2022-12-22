@@ -30,13 +30,14 @@ const ContactList = () => {
                             <p className={css.contact_name}>{name} ------------ {number}</p>
 
                             <button className={css.btn_delete_contact} type='submit' onClick={() => dispatch(deleteContact(id))}>
-                            {isLoading ? 'Deleting...' : 'Delete'}    
+                                Delete
                             </button>
                         </li>
                     ))
                 ) : (
                     <Notification message="Contact list is empty" />
                 )}
+                {isLoading && 'Loading...'}
             </ul>
         </div>
 

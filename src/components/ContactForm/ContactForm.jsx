@@ -83,8 +83,9 @@ const ContactForm = () => {
                 </label>
 
                 <button type='submit' className={css.contact_btn_add}>
-                    {isLoading ? 'Saving...' : 'Add contact'}
+                    Add contact
                 </button>
+
             </form>
         </div>
     );
