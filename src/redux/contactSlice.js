@@ -3,34 +3,6 @@ import persistReducer from 'redux-persist/es/persistReducer';
 import storage from 'redux-persist/lib/storage';
 import { fetchContacts, addContacts, deleteContact } from './operations';
 
-// const initialState = {
-//     // items: [
-//     //     { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
-//     //     { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
-//     //     { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
-//     //     { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
-//     // ],
-//     items: [],
-//     isLoading: false,
-//     error: null
-// };
-
-// const handleFetchContacts = (state, action) => {
-//     state.items = action.payload;
-// }
-
-// const handleAddContacts = (state, action) => {
-//     state.items.push(action.payload);
-// }
-
-// const handleDeleteContacts = (state, action) => {
-//     const idx = state.items.findIndex(({ id }) => id === action.payload.id);
-//     state.splice(idx, 1);
-// }
-
-// const actions = [fetchContacts, addContact, deleteContact];
-
-
 const handlePending = state => {
     state.isLoading = true;
 };
@@ -76,16 +48,6 @@ export const contactSlice = createSlice({
         },
         [deleteContact.rejected]: handleRejected,
     }
-
-    // reducers: {
-    //     createItems(state, action) {
-    //         state.items = [...state.items, action.payload];
-    //     },
-
-    //     deleteItems(state, action) {
-    //         state.items = state.items.filter(el => el.id !== action.payload);
-    //     },
-    // },
 });
 
 const persistConfig = {
@@ -94,5 +56,3 @@ const persistConfig = {
 };
 
 export const contactsReducer = persistReducer(persistConfig, contactSlice.reducer);
-
-// export const { createItems, deleteItems } = contactSlice.actions;
