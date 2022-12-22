@@ -2,7 +2,7 @@ import { nanoid } from 'nanoid';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // import { createItems } from 'redux/contactSlice';
-import { getContacts } from 'redux/selector';
+import { getContacts, getIsLoading } from 'redux/selector';
 import css from './ContactForm.module.css';
 import { addContacts } from 'redux/operations';
 
@@ -12,6 +12,7 @@ const ContactForm = () => {
     const [number, setNumber] = useState('');
     const dispatch = useDispatch();
     const contacts = useSelector(getContacts);
+    const isLoading = useSelector(getIsLoading);
 
     const handleChange = e => {
         const prop = e.currentTarget.name;
@@ -81,7 +82,9 @@ const ContactForm = () => {
                     />
                 </label>
 
-                <button type='submit' className={css.contact_btn_add}>Add contact</button>
+                <button type='submit' className={css.contact_btn_add}>
+                    {isLoading ? 'Saving...' : 'Add contact'}
+                </button>
             </form>
         </div>
     );
